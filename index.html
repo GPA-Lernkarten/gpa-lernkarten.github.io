@@ -34,6 +34,32 @@
             margin-bottom: 30px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             text-align: center;
+            position: relative;
+        }
+        
+        .header-nav {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-link {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 15px;
+            border: 1px solid #667eea;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background: #667eea;
+            color: white;
+            text-decoration: none;
         }
         
         .logo {
@@ -184,6 +210,12 @@
                 padding: 20px;
             }
             
+            .header-nav {
+                position: static;
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+            
             .logo {
                 font-size: 2rem;
             }
@@ -202,6 +234,9 @@
 <body>
     <div class="container">
         <header>
+            <nav class="header-nav">
+                <a href="https://gpa-lernkarten.github.io/gpa-privacy-policy/" class="nav-link">🔒 Datenschutz</a>
+            </nav>
             <div class="logo">📚 GPA Lernkarten</div>
             <div class="tagline">Revolutionäres Sprachenlernen mit Growing Participation Approach</div>
         </header>
