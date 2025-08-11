@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung - GPA Lernkarten App</title>
+    <meta name="description" content="Datenschutzerklärung der GPA Lernkarten App - Transparente Informationen zur Datenverarbeitung und Google Drive Integration">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .main-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            margin-top: 30px;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight-box {
+            background: rgba(102, 126, 234, 0.1);
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .oauth-section {
+            background: rgba(118, 75, 162, 0.1);
+            border: 2px solid #764ba2;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 10px;
+        }
+        
+        .oauth-section h3 {
+            color: #764ba2;
+            font-size: 1.3rem;
+        }
+        
+        .permissions-list {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .back-link {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            border: 2px solid #667eea;
+        }
+        
+        .back-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .contact-info {
+            background: rgba(118, 75, 162, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header, .main-content {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back-link">
+            <a href="https://gpa-lernkarten.github.io/">← Zurück zur Hauptseite</a>
+        </div>
+        
+        <header>
+            <div style="font-size: 1.8rem; font-weight: bold; color: #667eea;">🔒 Datenschutzerklärung</div>
+            <div style="font-size: 1rem; color: #666; margin-top: 10px;">GPA Lernkarten App</div>
+        </header>
+        
+        <main class="main-content">
+            <h1>Datenschutzerklärung</h1>
+            
+            <p><strong>Stand:</strong> Januar 2025</p>
+            <p><strong>Version:</strong> 2.0 - Erweitert für Google OAuth Integration</p>
+            
+            <h2>1. Überblick</h2>
+            <p>Diese Datenschutzerklärung informiert Sie über die Art, den Umfang und Zweck der Verarbeitung personenbezogener Daten in der GPA Lernkarten App. Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst und behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften.</p>
+            
+            <div class="highlight-box">
+                <h3>🎯 Wichtigste Grundsätze</h3>
+                <ul>
+                    <li><strong>Offline-First:</strong> Alle Ihre Lerndaten werden primär lokal auf Ihrem Gerät gespeichert</li>
+                    <li><strong>Optionale Cloud-Sync:</strong> Google Drive-Integration erfolgt nur mit Ihrer expliziten Zustimmung</li>
+                    <li><strong>Keine Tracking:</strong> Wir verwenden keine Tracking-Tools oder Analytics</li>
+                    <li><strong>Minimale Daten:</strong> Wir sammeln nur die für die App-Funktion notwendigen Daten</li>
+                </ul>
+            </div>
+            
+            <div class="oauth-section">
+                <h2>2. Google Drive Integration (OAuth 2.0)</h2>
+                
+                <h3>🔐 OAuth 2.0 Berechtigung</h3>
+                <p>Wenn Sie die optionale Google Drive-Synchronisation aktivieren, verwendet unsere App das <strong>OAuth 2.0 Protokoll</strong> für sicheren Zugriff auf Ihr Google Drive. Hierbei gewähren Sie der GPA Lernkarten App temporäre, widerrufbare Berechtigung für den Zugriff auf bestimmte Bereiche Ihres Google Drive.</p>
+                
+                <div class="permissions-list">
+                    <h4>Angeforderte Google Drive-Berechtigungen:</h4>
+                    <ul>
+                        <li><strong>drive.file:</strong> Zugriff nur auf Dateien, die von der GPA App erstellt oder geöffnet wurden</li>
+                        <li><strong>Keine Berechtigung für:</strong> Zugriff auf andere Dateien in Ihrem Google Drive</li>
+                        <li><strong>Zweck:</strong> Ausschließlich zum Speichern und Synchronisieren Ihrer GPA-Lerndaten</li>
+                    </ul>
+                </div>
+                
+                <h3>🔄 Synchronisierte Daten</h3>
+                <p>Bei aktivierter Google Drive-Synchronisation werden folgende Daten übertragen:</p>
+                <ul>
+                    <li>Ihre erstellten Lernkarten und -sammlungen</li>
+                    <li>Lernfortschritte und Statistiken</li>
+                    <li>App-Einstellungen und Präferenzen</li>
+                    <li>Medieninhalte (Bilder, Audio) die Sie in der App verwenden</li>
+                </ul>
+                
+                <h3>🛡️ Datensicherheit</h3>
+                <ul>
+                    <li><strong>Verschlüsselung:</strong> Alle Daten werden über HTTPS/TLS verschlüsselt übertragen</li>
+                    <li><strong>Google Standards:</strong> Nutzung der sicheren Google Drive API</li>
+                    <li><strong>Kein Server-Zugriff:</strong> Wir haben keinen Zugriff auf Ihre Google Drive-Daten</li>
+                    <li><strong>Token-Management:</strong> Sichere Verwaltung der OAuth-Zugriffstoken auf Ihrem Gerät</li>
+                </ul>
+                
+                <h3>🚫 Widerruf der Berechtigung</h3>
+                <p>Sie können die Google Drive-Berechtigung jederzeit widerrufen:</p>
+                <ol>
+                    <li><strong>In der App:</strong> Einstellungen → Cloud-Sync → "Google Drive trennen"</li>
+                    <li><strong>Im Google-Konto:</strong> <a href="https://myaccount.google.com/permissions" style="color: #667eea;">myaccount.google.com/permissions</a> → GPA Lernkarten App entfernen</li>
+                    <li><strong>Folgen des Widerrufs:</strong> Synchronisation wird beendet, lokale Daten bleiben erhalten</li>
+                </ol>
+            </div>
+            
+            <h2>3. Lokale Datenspeicherung</h2>
+            <p>Die Hauptfunktion der App erfolgt vollständig offline:</p>
+            <ul>
+                <li><strong>SQLite-Datenbank:</strong> Alle Lerndaten werden in einer lokalen Datenbank gespeichert</li>
+                <li><strong>Medienordner:</strong> Bilder, Audio- und andere Medieninhalte werden lokal abgelegt</li>
+                <li><strong>Einstellungen:</strong> App-Präferenzen werden im lokalen Speicher des Geräts gesichert</li>
+                <li><strong>Temporäre Dateien:</strong> Werden regelmäßig automatisch bereinigt</li>
+            </ul>
+            
+            <h2>4. Datenverarbeitung</h2>
+            
+            <h3>4.1 Welche Daten wir sammeln</h3>
+            <ul>
+                <li><strong>Lerninhalte:</strong> Von Ihnen erstellte oder importierte Lernkarten</li>
+                <li><strong>Lernstatistiken:</strong> Erfolgsraten, Lernzeit, Wiederholungsintervalle</li>
+                <li><strong>App-Einstellungen:</strong> Sprache, Theme, Schwierigkeitsgrade</li>
+                <li><strong>Medieninhalte:</strong> Bilder und Audio-Aufnahmen für Lernkarten</li>
+            </ul>
+            
+            <h3>4.2 Wie wir Ihre Daten verwenden</h3>
+            <ul>
+                <li><strong>App-Funktion:</strong> Bereitstellung der Kernfunktionen der Lern-App</li>
+                <li><strong>Lernfortschritt:</strong> Anzeige von Statistiken und Empfehlungen</li>
+                <li><strong>Synchronisation:</strong> Optional über Google Drive (nur mit Ihrer Zustimmung)</li>
+                <li><strong>App-Verbesserung:</strong> Lokale Optimierung der Lernalgorithmen</li>
+            </ul>
+            
+            <h2>5. Datenweitergabe</h2>
+            <div class="highlight-box">
+                <p><strong>Wichtig:</strong> Wir geben grundsätzlich keine personenbezogenen Daten an Dritte weiter. Die einzige Ausnahme ist die optionale Google Drive-Synchronisation, die Sie explizit aktivieren müssen.</p>
+            </div>
+            
+            <h3>5.1 Google Drive (optional)</h3>
+            <ul>
+                <li>Datenübertragung erfolgt nur bei aktivierter Synchronisation</li>
+                <li>Daten werden in Ihrem persönlichen Google Drive-Bereich gespeichert</li>
+                <li>Google's Datenschutzbestimmungen gelten zusätzlich</li>
+                <li>Wir haben keinen Zugriff auf Ihre Google Drive-Inhalte</li>
+            </ul>
+            
+            <h3>5.2 Keine sonstigen Übertragungen</h3>
+            <ul>
+                <li>Keine Analytics oder Tracking-Dienste</li>
+                <li>Keine Werbung oder Marketing-Plattformen</li>
+                <li>Keine Verkauf oder Vermietung von Daten</li>
+                <li>Keine unverschlüsselten Datenübertragungen</li>
+            </ul>
+            
+            <h2>6. Ihre Rechte</h2>
+            <p>Sie haben jederzeit das Recht auf:</p>
+            <ul>
+                <li><strong>Auskunft:</strong> Information über gespeicherte Daten (größtenteils lokal einsehbar)</li>
+                <li><strong>Berichtigung:</strong> Korrektur unrichtiger Daten</li>
+                <li><strong>Löschung:</strong> Vollständiges Entfernen aller Daten durch App-Deinstallation</li>
+                <li><strong>Datenübertragbarkeit:</strong> Export Ihrer Daten über die App-Funktion</li>
+                <li><strong>Widerspruch:</strong> Deaktivierung der Google Drive-Synchronisation</li>
+            </ul>
+            
+            <h2>7. Datensicherheit</h2>
+            <ul>
+                <li><strong>Lokale Verschlüsselung:</strong> Sensible Daten werden lokal verschlüsselt gespeichert</li>
+                <li><strong>Sichere Übertragung:</strong> HTTPS/TLS für alle Netzwerkverbindungen</li>
+                <li><strong>Regelmäßige Updates:</strong> Sicherheitsupdates der App</li>
+                <li><strong>Minimal-Prinzip:</strong> Nur notwendige Berechtigungen werden angefordert</li>
+            </ul>
+            
+            <h2>8. Speicherdauer</h2>
+            <ul>
+                <li><strong>Lokale Daten:</strong> Bis zur Deinstallation der App oder manuellen Löschung</li>
+                <li><strong>Google Drive:</strong> Bis zum Widerruf der Berechtigung oder manueller Löschung</li>
+                <li><strong>OAuth-Token:</strong> Werden regelmäßig erneuert oder bei Deaktivierung gelöscht</li>
+            </ul>
+            
+            <h2>9. Internationale Übertragungen</h2>
+            <p>Bei Nutzung der Google Drive-Synchronisation können Ihre Daten in Google-Rechenzentren weltweit verarbeitet werden. Google gewährleistet dabei angemessene Datenschutzstandards gemäß den geltenden Gesetzen.</p>
+            
+            <h2>10. Änderungen der Datenschutzerklärung</h2>
+            <p>Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren, um sie an geänderte Rechtslage oder App-Funktionen anzupassen. Sie werden über wesentliche Änderungen in der App informiert.</p>
+            
+            <div class="contact-info">
+                <h2>11. Kontakt</h2>
+                <p>Bei Fragen zum Datenschutz oder zur Ausübung Ihrer Rechte können Sie uns kontaktieren:</p>
+                <p><strong>E-Mail:</strong> just.text.mi@gmail.com</p>
+                <p><strong>Betreff:</strong> "GPA Lernkarten - Datenschutz"</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>🔍 Zusammenfassung für Google OAuth</h3>
+                <p>Die GPA Lernkarten App nutzt Google OAuth 2.0 ausschließlich für die optionale Synchronisation Ihrer Lerndaten mit Ihrem persönlichen Google Drive. Sie haben jederzeit die vollständige Kontrolle über diese Funktion und können sie aktivieren, deaktivieren oder die Berechtigung widerrufen, ohne dass dies die Grundfunktion der App beeinträchtigt.</p>
+            </div>
+            
+        </main>
+        
+        <div class="back-link">
+            <a href="https://gpa-lernkarten.github.io/">← Zurück zur Hauptseite</a>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 GPA Lernkarten - Transparenter Datenschutz für innovatives Sprachenlernen</p>
+        </footer>
+    </div>
+</body>
+</html>
