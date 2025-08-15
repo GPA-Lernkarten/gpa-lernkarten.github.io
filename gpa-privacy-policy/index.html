@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datenschutzerklärung - GPA Lernkarten App</title>
-    <meta name="description" content="Datenschutzerklärung der GPA Lernkarten App - Transparente Informationen zur Datenverarbeitung und Google Drive Integration">
+    <meta name="description" content="Datenschutzerklärung der GPA Lernkarten App - Transparente Informationen zur Datenverarbeitung und WebDAV-Synchronisation">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -213,7 +213,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .oauth-section {
+        .webdav-section {
             background: linear-gradient(135deg, rgba(220, 20, 60, 0.1), rgba(139, 0, 0, 0.1));
             border: 2px solid #DC143C;
             padding: 30px;
@@ -222,8 +222,8 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .oauth-section h2,
-        .oauth-section h3 {
+        .webdav-section h2,
+        .webdav-section h3 {
             color: #DC143C;
         }
 
@@ -328,7 +328,6 @@
         
         <main class="main-content">
             <p><strong>Stand:</strong> Januar 2025</p>
-            <p><strong>Version:</strong> 2.0 - Erweitert für Google OAuth Integration</p>
             
             <h2>1. Überblick</h2>
             <p>Diese Datenschutzerklärung informiert Sie über die Art, den Umfang und Zweck der Verarbeitung personenbezogener Daten in der GPA Lernkarten App. Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst und behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften.</p>
@@ -337,29 +336,30 @@
                 <h3>🎯 Wichtigste Grundsätze</h3>
                 <ul>
                     <li><strong>Offline-First:</strong> Alle Ihre Lerndaten werden primär lokal auf Ihrem Gerät gespeichert</li>
-                    <li><strong>Optionale Cloud-Sync:</strong> Google Drive-Integration erfolgt nur mit Ihrer expliziten Zustimmung</li>
+                    <li><strong>Optionale Cloud-Sync:</strong> WebDAV-Synchronisation erfolgt nur mit Ihrer expliziten Zustimmung</li>
                     <li><strong>Keine Tracking:</strong> Wir verwenden keine Tracking-Tools oder Analytics</li>
                     <li><strong>Minimale Daten:</strong> Wir sammeln nur die für die App-Funktion notwendigen Daten</li>
                 </ul>
             </div>
             
-            <div class="oauth-section">
-                <h2>2. Google Drive Integration (OAuth 2.0)</h2>
+            <div class="webdav-section">
+                <h2>2. WebDAV-Synchronisation</h2>
                 
-                <h3>🔐 OAuth 2.0 Berechtigung</h3>
-                <p>Wenn Sie die optionale Google Drive-Synchronisation aktivieren, verwendet unsere App das <strong>OAuth 2.0 Protokoll</strong> für sicheren Zugriff auf Ihr Google Drive. Hierbei gewähren Sie der GPA Lernkarten App temporäre, widerrufbare Berechtigung für den Zugriff auf bestimmte Bereiche Ihres Google Drive.</p>
+                <h3>🔐 WebDAV-Verbindung</h3>
+                <p>Wenn Sie die optionale WebDAV-Synchronisation aktivieren, können Sie Ihre Lerndaten mit einem WebDAV-kompatiblen Cloud-Dienst Ihrer Wahl synchronisieren. Die Verbindung erfolgt über das standardisierte <strong>WebDAV-Protokoll</strong> mit direkter Authentifizierung.</p>
                 
                 <div class="permissions-list">
-                    <h4>Angeforderte Google Drive-Berechtigungen:</h4>
+                    <h4>Unterstützte WebDAV-Dienste:</h4>
                     <ul>
-                        <li><strong>drive.file:</strong> Zugriff nur auf Dateien, die von der GPA App erstellt oder geöffnet wurden</li>
-                        <li><strong>Keine Berechtigung für:</strong> Zugriff auf andere Dateien in Ihrem Google Drive</li>
-                        <li><strong>Zweck:</strong> Ausschließlich zum Speichern und Synchronisieren Ihrer GPA-Lerndaten</li>
+                        <li><strong>Nextcloud:</strong> Open-Source Cloud-Lösung mit vollem WebDAV-Support</li>
+                        <li><strong>ownCloud:</strong> Selbst-gehostete oder verwaltete Cloud-Speicher</li>
+                        <li><strong>Koofr:</strong> Europäischer Cloud-Anbieter mit starkem Datenschutz</li>
+                        <li><strong>Weitere Dienste:</strong> Alle WebDAV-kompatiblen Cloud-Speicher</li>
                     </ul>
                 </div>
                 
                 <h3>🔄 Synchronisierte Daten</h3>
-                <p>Bei aktivierter Google Drive-Synchronisation werden folgende Daten übertragen:</p>
+                <p>Bei aktivierter WebDAV-Synchronisation werden folgende Daten übertragen:</p>
                 <ul>
                     <li>Ihre erstellten Lernkarten und -sammlungen</li>
                     <li>Lernfortschritte und Statistiken</li>
@@ -369,18 +369,18 @@
                 
                 <h3>🛡️ Datensicherheit</h3>
                 <ul>
-                    <li><strong>Verschlüsselung:</strong> Alle Daten werden über HTTPS/TLS verschlüsselt übertragen</li>
-                    <li><strong>Google Standards:</strong> Nutzung der sicheren Google Drive API</li>
-                    <li><strong>Kein Server-Zugriff:</strong> Wir haben keinen Zugriff auf Ihre Google Drive-Daten</li>
-                    <li><strong>Token-Management:</strong> Sichere Verwaltung der OAuth-Zugriffstoken auf Ihrem Gerät</li>
+                    <li><strong>Verschlüsselung:</strong> Alle Daten werden über HTTPS verschlüsselt übertragen</li>
+                    <li><strong>Authentifizierung:</strong> Sichere Anmeldung mit Benutzername und Passwort</li>
+                    <li><strong>Ihre Kontrolle:</strong> Daten werden nur auf dem von Ihnen gewählten Server gespeichert</li>
+                    <li><strong>Lokale Sicherheit:</strong> Anmeldedaten werden verschlüsselt auf Ihrem Gerät gespeichert</li>
                 </ul>
                 
-                <h3>🚫 Widerruf der Berechtigung</h3>
-                <p>Sie können die Google Drive-Berechtigung jederzeit widerrufen:</p>
+                <h3>🚫 Trennen der Verbindung</h3>
+                <p>Sie können die WebDAV-Verbindung jederzeit trennen:</p>
                 <ol>
-                    <li><strong>In der App:</strong> Einstellungen → Cloud-Sync → "Google Drive trennen"</li>
-                    <li><strong>Im Google-Konto:</strong> <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a> → GPA Lernkarten App entfernen</li>
-                    <li><strong>Folgen des Widerrufs:</strong> Synchronisation wird beendet, lokale Daten bleiben erhalten</li>
+                    <li><strong>In der App:</strong> Einstellungen → Cloud-Sync → "WebDAV trennen"</li>
+                    <li><strong>Daten löschen:</strong> Optional können Sie die Daten auf dem WebDAV-Server manuell löschen</li>
+                    <li><strong>Folgen der Trennung:</strong> Synchronisation wird beendet, lokale Daten bleiben erhalten</li>
                 </ol>
             </div>
             
@@ -407,21 +407,21 @@
             <ul>
                 <li><strong>App-Funktion:</strong> Bereitstellung der Kernfunktionen der Lern-App</li>
                 <li><strong>Lernfortschritt:</strong> Anzeige von Statistiken und Empfehlungen</li>
-                <li><strong>Synchronisation:</strong> Optional über Google Drive (nur mit Ihrer Zustimmung)</li>
+                <li><strong>Synchronisation:</strong> Optional über WebDAV (nur mit Ihrer Zustimmung)</li>
                 <li><strong>App-Verbesserung:</strong> Lokale Optimierung der Lernalgorithmen</li>
             </ul>
             
             <h2>5. Datenweitergabe</h2>
             <div class="highlight-box">
-                <p><strong>Wichtig:</strong> Wir geben grundsätzlich keine personenbezogenen Daten an Dritte weiter. Die einzige Ausnahme ist die optionale Google Drive-Synchronisation, die Sie explizit aktivieren müssen.</p>
+                <p><strong>Wichtig:</strong> Wir geben grundsätzlich keine personenbezogenen Daten an Dritte weiter. Die einzige Ausnahme ist die optionale WebDAV-Synchronisation, die Sie explizit aktivieren müssen.</p>
             </div>
             
-            <h3>5.1 Google Drive (optional)</h3>
+            <h3>5.1 WebDAV-Server (optional)</h3>
             <ul>
                 <li>Datenübertragung erfolgt nur bei aktivierter Synchronisation</li>
-                <li>Daten werden in Ihrem persönlichen Google Drive-Bereich gespeichert</li>
-                <li>Google's Datenschutzbestimmungen gelten zusätzlich</li>
-                <li>Wir haben keinen Zugriff auf Ihre Google Drive-Inhalte</li>
+                <li>Daten werden auf dem von Ihnen gewählten WebDAV-Server gespeichert</li>
+                <li>Datenschutzbestimmungen des jeweiligen Anbieters gelten zusätzlich</li>
+                <li>Wir haben keinen Zugriff auf Ihre WebDAV-Inhalte</li>
             </ul>
             
             <h3>5.2 Keine sonstigen Übertragungen</h3>
@@ -439,7 +439,7 @@
                 <li><strong>Berichtigung:</strong> Korrektur unrichtiger Daten</li>
                 <li><strong>Löschung:</strong> Vollständiges Entfernen aller Daten durch App-Deinstallation</li>
                 <li><strong>Datenübertragbarkeit:</strong> Export Ihrer Daten über die App-Funktion</li>
-                <li><strong>Widerspruch:</strong> Deaktivierung der Google Drive-Synchronisation</li>
+                <li><strong>Widerspruch:</strong> Deaktivierung der WebDAV-Synchronisation</li>
             </ul>
             
             <h2>7. Datensicherheit</h2>
@@ -453,12 +453,12 @@
             <h2>8. Speicherdauer</h2>
             <ul>
                 <li><strong>Lokale Daten:</strong> Bis zur Deinstallation der App oder manuellen Löschung</li>
-                <li><strong>Google Drive:</strong> Bis zum Widerruf der Berechtigung oder manueller Löschung</li>
-                <li><strong>OAuth-Token:</strong> Werden regelmäßig erneuert oder bei Deaktivierung gelöscht</li>
+                <li><strong>WebDAV-Server:</strong> Bis zur Trennung der Verbindung oder manueller Löschung</li>
+                <li><strong>Anmeldedaten:</strong> Werden bei Deaktivierung der Synchronisation gelöscht</li>
             </ul>
             
             <h2>9. Internationale Übertragungen</h2>
-            <p>Bei Nutzung der Google Drive-Synchronisation können Ihre Daten in Google-Rechenzentren weltweit verarbeitet werden. Google gewährleistet dabei angemessene Datenschutzstandards gemäß den geltenden Gesetzen.</p>
+            <p>Bei Nutzung der WebDAV-Synchronisation hängt der Speicherort Ihrer Daten vom gewählten Anbieter ab. Europäische Anbieter wie Nextcloud oder Koofr speichern Daten typischerweise in der EU und unterliegen der DSGVO. Bitte informieren Sie sich über den Serverstandort Ihres gewählten Anbieters.</p>
             
             <h2>10. Änderungen der Datenschutzerklärung</h2>
             <p>Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren, um sie an geänderte Rechtslage oder App-Funktionen anzupassen. Sie werden über wesentliche Änderungen in der App informiert.</p>
@@ -471,8 +471,8 @@
             </div>
             
             <div class="highlight-box">
-                <h3>🔍 Zusammenfassung für Google OAuth</h3>
-                <p>Die GPA Lernkarten App nutzt Google OAuth 2.0 ausschließlich für die optionale Synchronisation Ihrer Lerndaten mit Ihrem persönlichen Google Drive. Sie haben jederzeit die vollständige Kontrolle über diese Funktion und können sie aktivieren, deaktivieren oder die Berechtigung widerrufen, ohne dass dies die Grundfunktion der App beeinträchtigt.</p>
+                <h3>🔍 Zusammenfassung für WebDAV-Synchronisation</h3>
+                <p>Die GPA Lernkarten App nutzt das WebDAV-Protokoll für die optionale Synchronisation Ihrer Lerndaten mit einem Cloud-Dienst Ihrer Wahl. Sie behalten die vollständige Kontrolle über Ihre Daten und können selbst entscheiden, wo diese gespeichert werden. Die Synchronisation kann jederzeit aktiviert, deaktiviert oder getrennt werden, ohne dass dies die Grundfunktion der App beeinträchtigt.</p>
             </div>
             
         </main>
