@@ -4,96 +4,445 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPA Lernkarten - Download für Windows und macOS</title>
-    <meta name="description" content="Laden Sie die GPA Lernkarten App kostenlos für Windows und macOS herunter. Sprachen lernen mit der bewährten GPA-Methode - Offline-First mit Cloud-Sync.">
-    <meta name="keywords" content="GPA, Lernkarten, Sprachen lernen, Windows, macOS, Download, App">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Laden Sie die GPA Lernkarten App kostenlos für Windows und macOS herunter. Sprachen lernen mit der bewährten GPA-Methode.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset und Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 25%, #DC143C 50%, #B22222 75%, #8B0000 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            max-width: 900px;
+        }
+
+        /* App Logo */
+        .app-logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            border-radius: 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s ease;
+            background: white;
+            padding: 10px;
+        }
+
+        .app-logo:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, #fff, #f8f8f8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 60px;
+            opacity: 0.95;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .download-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .download-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        /* Download Cards */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .download-card:hover::before {
+            left: 100%;
+        }
+
+        .download-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+            background: white;
+        }
+
+        .platform-icon {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .platform-icon svg {
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .platform-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .version-info {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .system-req {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 25px;
+        }
+
+        .download-button {
+            background: linear-gradient(135deg, #FF6B35, #DC143C);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .download-card:hover .download-button {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Mobile Section */
+        .mobile-section {
+            margin-top: 80px;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .mobile-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .mobile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .mobile-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px 25px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .mobile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
+            background: white;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .tagline { font-size: 1.3rem; }
+            .download-title { font-size: 2rem; }
+            .download-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .mobile-grid { grid-template-columns: 1fr; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+    </style>
 </head>
 <body>
-    <header class="hero">
+    <div class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="logo-section">
-                    <img src="assets/app-icon.png" alt="GPA Lernkarten Logo" class="app-logo">
-                    <h1>GPA Lernkarten</h1>
-                    <p class="tagline">Sprachen lernen mit der bewährten GPA-Methode</p>
+                <!-- App Logo -->
+                <div class="logo-container">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIiByeD0iMzIiIGZpbGw9IiM4QjAwMDAiLz4KPHN2ZyB4PSIyMCIgeT0iMjAiIHdpZHRoPSIxMTAiIGhlaWdodD0iMTEwIiB2aWV3Qm94PSIwIDAgMTEwIDExMCIgZmlsbD0ibm9uZSI+CjxyZWN0IHdpZHRoPSIxMTAiIGhlaWdodD0iMTEwIiByeD0iMjAiIGZpbGw9IndoaXRlIi8+Cjx0ZXh0IHg9IjU1IiB5PSI0MCIgZm9udC1mYW1pbHk9IkludGVyLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjOEIwMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5HUEE8L3RleHQ+Cjx0ZXh0IHg9IjU1IiB5PSI4NSIgZm9udC1mYW1pbHk9IkludGVyLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjOEIwMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5MRVJOQVBQPC90ZXh0Pgo8L3N2Zz4KPC9zdmc+" alt="GPA Lernkarten Logo" class="app-logo">
                 </div>
-                
-                <div class="download-section">
-                    <h2>Jetzt kostenlos herunterladen</h2>
-                    <p class="download-subtitle">Für Windows und macOS verfügbar</p>
-                    
-                    <div class="download-buttons">
-                        <a href="#" class="download-btn windows" id="windows-download">
-                            <div class="btn-icon">💻</div>
-                            <div class="btn-text">
-                                <span class="platform">Windows</span>
-                                <span class="version">Version 1.0.4</span>
-                            </div>
-                            <div class="btn-arrow">→</div>
-                        </a>
-                        
-                        <a href="#" class="download-btn macos" id="macos-download">
-                            <div class="btn-icon">🍎</div>
-                            <div class="btn-text">
-                                <span class="platform">macOS</span>
-                                <span class="version">Version 1.0.4</span>
-                            </div>
-                            <div class="btn-arrow">→</div>
-                        </a>
-                    </div>
-                    
-                    <div class="features">
-                        <h3>Features</h3>
-                        <div class="feature-list">
-                            <div class="feature">✅ Offline-First Design</div>
-                            <div class="feature">✅ Cloud-Synchronisation</div>
-                            <div class="feature">✅ Lernspiele & Statistiken</div>
-                            <div class="feature">✅ Media-Unterstützung</div>
+
+                <!-- Title -->
+                <h1>GPA Lernkarten</h1>
+                <p class="tagline">Sprachen lernen mit der bewährten GPA-Methode</p>
+
+                <!-- Download Section -->
+                <h2 class="download-title">Jetzt kostenlos herunterladen</h2>
+                <p class="download-subtitle">Verfügbar für Windows und macOS</p>
+
+                <!-- Download Grid -->
+                <div class="download-grid">
+                    <!-- Windows Card -->
+                    <div class="download-card" onclick="downloadWindows()">
+                        <div class="platform-icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.852" fill="#0078D4"/>
+                            </svg>
+                        </div>
+                        <h3 class="platform-name">Windows</h3>
+                        <p class="version-info">Version 1.0.4</p>
+                        <p class="system-req">Windows 10/11 (64-bit)</p>
+                        <div class="download-button">
+                            <span>Herunterladen</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 15L17 10H14V4H10V10H7L12 15Z" fill="currentColor"/>
+                                <path d="M20 18H4V20H20V18Z" fill="currentColor"/>
+                            </svg>
                         </div>
                     </div>
-                    
-                    <div class="mobile-links">
-                        <p>Auch verfügbar für mobile Geräte:</p>
-                        <div class="mobile-buttons">
-                            <a href="#" class="mobile-btn" title="Google Play Store">
-                                <div class="store-btn">
-                                    <span class="store-icon">📱</span>
-                                    <div class="store-text">
-                                        <small>Verfügbar im</small>
-                                        <strong>Google Play</strong>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="mobile-btn" title="Apple App Store">
-                                <div class="store-btn">
-                                    <span class="store-icon">📱</span>
-                                    <div class="store-text">
-                                        <small>Download im</small>
-                                        <strong>App Store</strong>
-                                    </div>
-                                </div>
-                            </a>
+
+                    <!-- macOS Card -->
+                    <div class="download-card" onclick="downloadMacOS()">
+                        <div class="platform-icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                                <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.13997 6.91 8.85997 6.88C10.15 6.85 11.36 7.72 12.11 7.72C12.86 7.72 14.28 6.66 15.81 6.84C16.48 6.87 18.29 7.13 19.44 8.93C19.36 8.99 17.81 9.96 17.82 12.12C17.84 14.70 20.01 15.52 20.02 15.53C19.99 15.61 19.67 16.63 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" fill="#007AFF"/>
+                            </svg>
                         </div>
+                        <h3 class="platform-name">macOS</h3>
+                        <p class="version-info">Version 1.0.4</p>
+                        <p class="system-req">macOS 10.15+ (Intel/Apple Silicon)</p>
+                        <div class="download-button">
+                            <span>Herunterladen</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 15L17 10H14V4H10V10H7L12 15Z" fill="currentColor"/>
+                                <path d="M20 18H4V20H20V18Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Apps Section -->
+                <div class="mobile-section">
+                    <h2 class="mobile-title">Auch verfügbar für mobile Geräte</h2>
+                    <div class="mobile-grid">
+                        <a href="#" class="mobile-card" onclick="downloadAndroid()">
+                            <div class="platform-icon">
+                                <svg width="50" height="50" viewBox="0 0 24 24" fill="none">
+                                    <path d="M17.523 15.3414C18.158 15.3414 18.67 14.8294 18.67 14.1944C18.67 13.5594 18.158 13.0474 17.523 13.0474C16.888 13.0474 16.376 13.5594 16.376 14.1944C16.376 14.8294 16.888 15.3414 17.523 15.3414Z" fill="#3DDC84"/>
+                                    <path d="M6.477 15.3414C7.112 15.3414 7.624 14.8294 7.624 14.1944C7.624 13.5594 7.112 13.0474 6.477 13.0474C5.842 13.0474 5.33 13.5594 5.33 14.1944C5.33 14.8294 5.842 15.3414 6.477 15.3414Z" fill="#3DDC84"/>
+                                    <path d="M12 2L13.09 8.26L22 9L17.5 14L18.18 22L12 19.77L5.82 22L6.5 14L2 9L10.91 8.26L12 2Z" fill="#3DDC84"/>
+                                </svg>
+                            </div>
+                            <h3 class="platform-name">Android</h3>
+                            <p class="version-info">Google Play Store</p>
+                            <p class="system-req">Android 5.0+</p>
+                        </a>
+
+                        <a href="#" class="mobile-card" onclick="downloadIOS()">
+                            <div class="platform-icon">
+                                <svg width="50" height="50" viewBox="0 0 24 24" fill="none">
+                                    <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.13997 6.91 8.85997 6.88C10.15 6.85 11.36 7.72 12.11 7.72C12.86 7.72 14.28 6.66 15.81 6.84C16.48 6.87 18.29 7.13 19.44 8.93C19.36 8.99 17.81 9.96 17.82 12.12C17.84 14.70 20.01 15.52 20.02 15.53C19.99 15.61 19.67 16.63 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" fill="#007AFF"/>
+                                </svg>
+                            </div>
+                            <h3 class="platform-name">iOS</h3>
+                            <p class="version-info">Apple App Store</p>
+                            <p class="system-req">iOS 12.0+</p>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-    
+    </div>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <p>&copy; 2025 GPA Lernkarten. Alle Rechte vorbehalten.</p>
                 <div class="footer-links">
                     <a href="gpa-privacy-policy/" class="footer-link">Datenschutzerklärung</a>
-                    <span class="separator">|</span>
                     <a href="mailto:support@gpa-lernkarten.de" class="footer-link">Kontakt</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        // Platform detection
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isWindows = userAgent.includes('win');
+        const isMac = userAgent.includes('mac') && !userAgent.includes('iphone') && !userAgent.includes('ipad');
+        const isIOS = userAgent.includes('iphone') || userAgent.includes('ipad');
+        const isAndroid = userAgent.includes('android');
+
+        // Download functions
+        function downloadWindows() {
+            alert('🚀 Windows-Download wird demnächst verfügbar sein!\\n\\nBitte schaue bald wieder vorbei oder kontaktiere uns für Updates.');
+            console.log('Windows download requested');
+        }
+
+        function downloadMacOS() {
+            alert('🚀 macOS-Download wird demnächst verfügbar sein!\\n\\nBitte schaue bald wieder vorbei oder kontaktiere uns für Updates.');
+            console.log('macOS download requested');
+        }
+
+        function downloadAndroid() {
+            alert('📱 Android-App wird demnächst im Google Play Store verfügbar sein!\\n\\nBitte schaue bald wieder vorbei.');
+            console.log('Android download requested');
+        }
+
+        function downloadIOS() {
+            alert('📱 iOS-App wird demnächst im Apple App Store verfügbar sein!\\n\\nBitte schaue bald wieder vorbei.');
+            console.log('iOS download requested');
+        }
+
+        // Platform highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.download-card');
+            
+            if (isWindows && cards[0]) {
+                cards[0].style.border = '3px solid #FFD700';
+                cards[0].style.background = 'linear-gradient(135deg, #fff 0%, #fffbf0 100%)';
+                cards[0].setAttribute('title', 'Windows erkannt - Empfohlen für Sie');
+            } else if (isMac && cards[1]) {
+                cards[1].style.border = '3px solid #FFD700';
+                cards[1].style.background = 'linear-gradient(135deg, #fff 0%, #fffbf0 100%)';
+                cards[1].setAttribute('title', 'macOS erkannt - Empfohlen für Sie');
+            }
+
+            // Smooth animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
 </body>
 </html>
