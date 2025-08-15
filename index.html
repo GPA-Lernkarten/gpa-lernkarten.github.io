@@ -104,132 +104,52 @@
             color: #e65100;
         }
 
-        /* Beautiful Custom Language Selector */
-        .language-selector {
+        /* Simple Google Translate Styling */
+        #google_translate_element {
             position: fixed;
-            top: 20px;
+            bottom: 20px;
             right: 20px;
             z-index: 1000;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 248, 248, 0.95));
-            border-radius: 16px;
-            padding: 12px 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.08);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 8px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        .language-selector:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 6px 20px rgba(0, 0, 0, 0.1);
+        /* Style the Google Translate dropdown */
+        .goog-te-combo {
+            background: white !important;
+            border: 1px solid #ddd !important;
+            border-radius: 8px !important;
+            padding: 6px 8px !important;
+            font-size: 12px !important;
+            font-family: 'Inter', sans-serif !important;
+            outline: none !important;
+            cursor: pointer !important;
         }
 
-        .language-button {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            color: #333;
-            padding: 6px 8px;
-            border-radius: 10px;
-            transition: all 0.2s ease;
-            position: relative;
+        .goog-te-combo:focus {
+            border-color: #FF6B35 !important;
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2) !important;
         }
 
-        .language-button:hover {
-            background: rgba(255, 107, 53, 0.1);
-            color: #FF6B35;
-        }
-
-        .language-icon {
-            font-size: 16px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-        }
-
-        .language-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            margin-top: 8px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            min-width: 180px;
-            backdrop-filter: blur(20px);
-        }
-
-        .language-dropdown.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .language-option {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            font-weight: 500;
-            color: #333;
-            border: none;
-            background: none;
-            width: 100%;
-            text-align: left;
-        }
-
-        .language-option:hover {
-            background: linear-gradient(135deg, #FF6B35, #DC143C);
-            color: white;
-        }
-
-        .language-option:hover .flag-icon {
-            transform: scale(1.1);
-        }
-
-        .flag-icon {
-            font-size: 16px;
-            transition: transform 0.2s ease;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-        }
-
-        /* Hide Google Translate completely */
-        #google_translate_element,
-        .goog-te-banner-frame,
-        .goog-te-gadget,
-        .goog-te-combo,
-        .goog-logo-link,
-        .skiptranslate,
-        .goog-te-spinner-pos,
-        .goog-te-ftab {
-            display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-            position: absolute !important;
-            left: -9999px !important;
-            top: -9999px !important;
-        }
-
-        /* Hide the top translate bar */
-        body > .skiptranslate {
+        /* Hide Google branding but keep functionality */
+        .goog-te-gadget > span > a {
             display: none !important;
         }
 
-        /* Remove any Google translate styling from body */
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+
+        .goog-te-gadget {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0 !important;
+        }
+
+        /* Remove margin from body when translated */
         body.translated-ltr,
         body.translated-rtl {
             margin-top: 0 !important;
@@ -241,23 +161,16 @@
                 background-attachment: scroll;
                 background-size: 100% 100%;
             }
-            .language-selector {
-                top: 10px;
+            
+            #google_translate_element {
+                bottom: 10px;
                 right: 10px;
-                padding: 10px 12px;
+                padding: 6px;
             }
             
-            .language-button {
-                font-size: 13px;
-            }
-            
-            .language-dropdown {
-                min-width: 160px;
-            }
-            
-            .language-option {
-                padding: 10px 14px;
-                font-size: 12px;
+            .goog-te-combo {
+                font-size: 11px !important;
+                padding: 4px 6px !important;
             }
         }
 
@@ -453,54 +366,8 @@
     </style>
 </head>
 <body>
-    <!-- Beautiful Language Selector -->
-    <div class="language-selector">
-        <button class="language-button" onclick="toggleLanguageDropdown()">
-            <span class="language-icon">🌍</span>
-            <span id="current-language">Deutsch</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="transition: transform 0.2s ease;">
-                <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-        </button>
-        
-        <div class="language-dropdown" id="language-dropdown">
-            <button class="language-option" onclick="changeLanguage('de', 'Deutsch')">
-                <span class="flag-icon">🇩🇪</span>
-                <span>Deutsch</span>
-            </button>
-            <button class="language-option" onclick="changeLanguage('en', 'English')">
-                <span class="flag-icon">🇺🇸</span>
-                <span>English</span>
-            </button>
-            <button class="language-option" onclick="changeLanguage('es', 'Español')">
-                <span class="flag-icon">🇪🇸</span>
-                <span>Español</span>
-            </button>
-            <button class="language-option" onclick="changeLanguage('fr', 'Français')">
-                <span class="flag-icon">🇫🇷</span>
-                <span>Français</span>
-            </button>
-            <button class="language-option" onclick="changeLanguage('it', 'Italiano')">
-                <span class="flag-icon">🇮🇹</span>
-                <span>Italiano</span>
-            </button>
-            <button class="language-option" onclick="changeLanguage('ru', 'Русский')">
-                <span class="flag-icon">🇷🇺</span>
-                <span>Русский</span>
-            </button>
-            <button class="language-option" onclick="changeLanguage('ar', 'العربية')">
-                <span class="flag-icon">🇦🇪</span>
-                <span>العربية</span>
-            </button>
-            <button class="language-option" onclick="changeLanguage('tr', 'Türkçe')">
-                <span class="flag-icon">🇹🇷</span>
-                <span>Türkçe</span>
-            </button>
-        </div>
-    </div>
-    
-    <!-- Hidden Google Translate for functionality -->
-    <div id="google_translate_element" style="display: none;"></div>
+    <!-- Small Google Translate Widget -->
+    <div id="google_translate_element"></div>
 
     <div class="hero">
         <div class="container">
@@ -607,9 +474,7 @@
     </footer>
 
     <script>
-        // Beautiful Language Selector
-        let isDropdownOpen = false;
-        
+        // Auto-detect browser language and translate
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'de',
@@ -618,61 +483,32 @@
                 multilanguagePage: true,
                 gaTrack: true
             }, 'google_translate_element');
+            
+            // Auto-translate based on browser language
+            setTimeout(autoTranslate, 1000);
         }
 
-        function toggleLanguageDropdown() {
-            const dropdown = document.getElementById('language-dropdown');
-            const button = document.querySelector('.language-button svg');
-            
-            isDropdownOpen = !isDropdownOpen;
-            
-            if (isDropdownOpen) {
-                dropdown.classList.add('active');
-                button.style.transform = 'rotate(180deg)';
-            } else {
-                dropdown.classList.remove('active');
-                button.style.transform = 'rotate(0deg)';
-            }
-        }
-
-        function changeLanguage(langCode, langName) {
-            // Update button text
-            document.getElementById('current-language').textContent = langName;
-            
-            // Close dropdown
-            const dropdown = document.getElementById('language-dropdown');
-            const button = document.querySelector('.language-button svg');
-            dropdown.classList.remove('active');
-            button.style.transform = 'rotate(0deg)';
-            isDropdownOpen = false;
-            
-            // Trigger Google Translate
-            if (langCode === 'de') {
-                // Reset to original language
-                const select = document.querySelector('.goog-te-combo');
-                if (select) {
-                    select.value = '';
-                    select.dispatchEvent(new Event('change'));
-                }
-            } else {
-                // Wait for Google Translate to be ready
-                setTimeout(() => {
+        function autoTranslate() {
+            try {
+                // Get browser language
+                const browserLang = navigator.language.split('-')[0].toLowerCase();
+                
+                // Supported languages for auto-translation
+                const supportedLangs = ['en', 'es', 'fr', 'it', 'ru', 'ar', 'tr', 'pl', 'pt', 'hi', 'uk', 'ja'];
+                
+                // Only auto-translate if not German and if supported
+                if (browserLang !== 'de' && supportedLangs.includes(browserLang)) {
                     const select = document.querySelector('.goog-te-combo');
                     if (select) {
-                        select.value = langCode;
+                        console.log('Auto-translating to:', browserLang);
+                        select.value = browserLang;
                         select.dispatchEvent(new Event('change'));
                     }
-                }, 100);
+                }
+            } catch (error) {
+                console.log('Auto-translation not available:', error);
             }
         }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const selector = document.querySelector('.language-selector');
-            if (!selector.contains(event.target) && isDropdownOpen) {
-                toggleLanguageDropdown();
-            }
-        });
 
         // Platform detection
         const userAgent = navigator.userAgent.toLowerCase();
