@@ -5,171 +5,328 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datenschutzerklärung - GPA Lernkarten App</title>
     <meta name="description" content="Datenschutzerklärung der GPA Lernkarten App - Transparente Informationen zur Datenverarbeitung und Google Drive Integration">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Translate -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
     <style>
+        /* Reset und Base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 25%, #DC143C 50%, #B22222 75%, #8B0000 100%);
+            background-attachment: fixed;
             min-height: 100vh;
+            overflow-x: hidden;
         }
-        
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
-        
-        header {
+
+        /* Simple Google Translate Styling */
+        #google_translate_element {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
             background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 8px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Style the Google Translate dropdown */
+        .goog-te-combo {
+            background: white !important;
+            border: 1px solid #ddd !important;
+            border-radius: 8px !important;
+            padding: 6px 8px !important;
+            font-size: 12px !important;
+            font-family: 'Inter', sans-serif !important;
+            outline: none !important;
+            cursor: pointer !important;
+        }
+
+        .goog-te-combo:focus {
+            border-color: #FF6B35 !important;
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2) !important;
+        }
+
+        /* Hide Google branding but keep functionality */
+        .goog-te-gadget > span > a {
+            display: none !important;
+        }
+
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+
+        .goog-te-gadget {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0 !important;
+        }
+
+        /* Remove margin from body when translated */
+        body.translated-ltr,
+        body.translated-rtl {
+            margin-top: 0 !important;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px 30px;
             margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
             text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        
-        .main-content {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-        
-        h1 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 2.2rem;
-            text-align: center;
-        }
-        
-        h2 {
-            color: #764ba2;
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #333;
             margin-bottom: 15px;
-            margin-top: 30px;
-            font-size: 1.4rem;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Back Link */
+        .back-link {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 15px 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-link a {
+            color: #FF6B35;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link a:hover {
+            color: #DC143C;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 50px 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Typography */
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            margin-top: 40px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-bottom: 3px solid #FF6B35;
+            padding-bottom: 10px;
+        }
+
         h3 {
-            color: #667eea;
+            color: #FF6B35;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: #666;
             margin-bottom: 10px;
             margin-top: 20px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
         }
-        
+
         p {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
+            color: #444;
+            font-weight: 400;
         }
-        
+
         ul, ol {
-            margin-bottom: 15px;
-            padding-left: 30px;
+            margin-bottom: 20px;
+            padding-left: 25px;
         }
-        
+
         li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            color: #444;
         }
-        
+
+        strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Special Boxes */
         .highlight-box {
-            background: rgba(102, 126, 234, 0.1);
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        
-        .oauth-section {
-            background: rgba(118, 75, 162, 0.1);
-            border: 2px solid #764ba2;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(220, 20, 60, 0.1));
+            border-left: 4px solid #FF6B35;
             padding: 25px;
             margin: 25px 0;
-            border-radius: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
+        .oauth-section {
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.1), rgba(139, 0, 0, 0.1));
+            border: 2px solid #DC143C;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .oauth-section h2,
         .oauth-section h3 {
-            color: #764ba2;
-            font-size: 1.3rem;
+            color: #DC143C;
         }
-        
+
         .permissions-list {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        
-        .back-link {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 20px;
-            border: 2px solid #667eea;
-        }
-        
-        .back-link a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        
-        footer {
-            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
             padding: 20px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .contact-info {
-            background: rgba(118, 75, 162, 0.1);
-            padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
             margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
+        .contact-info {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(178, 34, 34, 0.1));
+            border: 2px solid #8B0000;
+            padding: 25px;
+            border-radius: 16px;
+            margin: 25px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h2 {
+            color: #8B0000;
+            border-bottom-color: #8B0000;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Links */
+        a {
+            color: #FF6B35;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #DC143C;
+        }
+
+        /* Mobile responsiveness */
         @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+                background-size: 100% 100%;
+            }
+            
             .container {
-                padding: 10px;
+                padding: 15px;
             }
             
-            header, .main-content {
-                padding: 20px;
+            .header, .main-content {
+                padding: 25px 20px;
             }
             
-            h1 {
-                font-size: 1.8rem;
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            #google_translate_element {
+                bottom: 10px;
+                right: 10px;
+                padding: 6px;
+            }
+            
+            .goog-te-combo {
+                font-size: 11px !important;
+                padding: 4px 6px !important;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element"></div>
+
     <div class="container">
         <div class="back-link">
-            <a href="https://gpa-lernkarten.github.io/">← Zurück zur Hauptseite</a>
+            <a href="../">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Zurück zur Hauptseite
+            </a>
         </div>
         
-        <header>
-            <div style="font-size: 1.8rem; font-weight: bold; color: #667eea;">🔒 Datenschutzerklärung</div>
-            <div style="font-size: 1rem; color: #666; margin-top: 10px;">GPA Lernkarten App</div>
+        <header class="header">
+            <h1>🔒 Datenschutzerklärung</h1>
+            <div class="subtitle">GPA Lernkarten App</div>
         </header>
         
         <main class="main-content">
-            <h1>Datenschutzerklärung</h1>
-            
             <p><strong>Stand:</strong> Januar 2025</p>
             <p><strong>Version:</strong> 2.0 - Erweitert für Google OAuth Integration</p>
             
@@ -222,7 +379,7 @@
                 <p>Sie können die Google Drive-Berechtigung jederzeit widerrufen:</p>
                 <ol>
                     <li><strong>In der App:</strong> Einstellungen → Cloud-Sync → "Google Drive trennen"</li>
-                    <li><strong>Im Google-Konto:</strong> <a href="https://myaccount.google.com/permissions" style="color: #667eea;">myaccount.google.com/permissions</a> → GPA Lernkarten App entfernen</li>
+                    <li><strong>Im Google-Konto:</strong> <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a> → GPA Lernkarten App entfernen</li>
                     <li><strong>Folgen des Widerrufs:</strong> Synchronisation wird beendet, lokale Daten bleiben erhalten</li>
                 </ol>
             </div>
@@ -321,12 +478,55 @@
         </main>
         
         <div class="back-link">
-            <a href="https://gpa-lernkarten.github.io/">← Zurück zur Hauptseite</a>
+            <a href="../">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Zurück zur Hauptseite
+            </a>
         </div>
         
-        <footer>
+        <footer class="footer">
             <p>&copy; 2025 GPA Lernkarten - Transparenter Datenschutz für innovatives Sprachenlernen</p>
         </footer>
     </div>
+
+    <script>
+        // Auto-detect browser language and translate
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'de',
+                includedLanguages: 'en,es,fr,it,ru,ar,tr,pl,pt,hi,uk,ja',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                multilanguagePage: true,
+                gaTrack: true
+            }, 'google_translate_element');
+            
+            // Auto-translate based on browser language
+            setTimeout(autoTranslate, 1000);
+        }
+
+        function autoTranslate() {
+            try {
+                // Get browser language
+                const browserLang = navigator.language.split('-')[0].toLowerCase();
+                
+                // Supported languages for auto-translation
+                const supportedLangs = ['en', 'es', 'fr', 'it', 'ru', 'ar', 'tr', 'pl', 'pt', 'hi', 'uk', 'ja'];
+                
+                // Only auto-translate if not German and if supported
+                if (browserLang !== 'de' && supportedLangs.includes(browserLang)) {
+                    const select = document.querySelector('.goog-te-combo');
+                    if (select) {
+                        console.log('Auto-translating to:', browserLang);
+                        select.value = browserLang;
+                        select.dispatchEvent(new Event('change'));
+                    }
+                }
+            } catch (error) {
+                console.log('Auto-translation not available:', error);
+            }
+        }
+    </script>
 </body>
 </html>
