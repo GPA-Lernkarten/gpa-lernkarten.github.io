@@ -69,19 +69,35 @@
             font-size: 4rem;
             font-weight: 800;
             margin-bottom: 20px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(45deg, #fff, #f8f8f8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: white;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
         }
 
         .tagline {
             font-size: 1.5rem;
             font-weight: 300;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             opacity: 0.95;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Beta Notice */
+        .beta-notice {
+            background: rgba(255, 193, 7, 0.9);
+            color: #333;
+            padding: 15px 25px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #ff9800;
+        }
+
+        .beta-notice strong {
+            color: #e65100;
         }
 
         .download-title {
@@ -196,10 +212,6 @@
         .mobile-section {
             margin-top: 80px;
             padding: 60px 0;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .mobile-title {
@@ -292,8 +304,13 @@
                 <h1>GPA Lernkarten</h1>
                 <p class="tagline">Sprachen lernen mit der bewährten GPA-Methode</p>
 
+                <!-- Beta Notice -->
+                <div class="beta-notice">
+                    🚧 <strong>Website in Entwicklung:</strong> Die Download-Links sind noch nicht aktiv, werden aber bald die Windows- und macOS-Versionen bereitstellen.
+                </div>
+
                 <!-- Download Section -->
-                <h2 class="download-title">Jetzt kostenlos herunterladen</h2>
+                <h2 class="download-title">Jetzt herunterladen</h2>
                 <p class="download-subtitle">Verfügbar für Windows und macOS</p>
 
                 <!-- Download Grid -->
@@ -377,7 +394,7 @@
                 <p>&copy; 2025 GPA Lernkarten. Alle Rechte vorbehalten.</p>
                 <div class="footer-links">
                     <a href="gpa-privacy-policy/" class="footer-link">Datenschutzerklärung</a>
-                    <a href="mailto:support@gpa-lernkarten.de" class="footer-link">Kontakt</a>
+                    <a href="mailto:just.text.mi@gmail.com" class="footer-link">Kontakt</a>
                 </div>
             </div>
         </div>
