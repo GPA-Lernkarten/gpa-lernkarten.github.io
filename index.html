@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Google Translate -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
     <style>
         /* Reset und Base */
         * {
@@ -98,6 +101,78 @@
 
         .beta-notice strong {
             color: #e65100;
+        }
+
+        /* Google Translate Styling */
+        .translate-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 8px 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .translate-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 4px;
+            font-weight: 500;
+            display: block;
+        }
+
+        /* Google Translate Widget Overrides */
+        .goog-te-combo {
+            background: white !important;
+            border: 1px solid #ddd !important;
+            border-radius: 8px !important;
+            padding: 6px 8px !important;
+            font-size: 12px !important;
+            font-family: 'Inter', sans-serif !important;
+            outline: none !important;
+            cursor: pointer !important;
+            min-width: 120px !important;
+        }
+
+        .goog-te-combo:focus {
+            border-color: #FF6B35 !important;
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2) !important;
+        }
+
+        /* Hide Google branding */
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+
+        .goog-te-gadget {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0 !important;
+        }
+
+        .goog-te-gadget > span > a {
+            display: none !important;
+        }
+
+        .goog-te-gadget .goog-te-combo {
+            margin: 0 !important;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .translate-container {
+                top: 10px;
+                right: 10px;
+                padding: 6px 10px;
+            }
+            
+            .goog-te-combo {
+                min-width: 100px !important;
+                font-size: 11px !important;
+            }
         }
 
         .download-title {
@@ -292,6 +367,12 @@
     </style>
 </head>
 <body>
+    <!-- Google Translate Widget -->
+    <div class="translate-container">
+        <span class="translate-label">🌍 Language</span>
+        <div id="google_translate_element"></div>
+    </div>
+
     <div class="hero">
         <div class="container">
             <div class="hero-content">
@@ -397,6 +478,17 @@
     </footer>
 
     <script>
+        // Google Translate Initialization
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'de',
+                includedLanguages: 'en,es,fr,it,ru,ar,tr,pl,pt,hi,uk,ja',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                multilanguagePage: true,
+                gaTrack: true
+            }, 'google_translate_element');
+        }
+
         // Platform detection
         const userAgent = navigator.userAgent.toLowerCase();
         const isWindows = userAgent.includes('win');
